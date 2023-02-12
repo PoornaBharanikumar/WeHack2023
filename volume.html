@@ -1,15 +1,16 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html>
     <head>
         <title> Distracted Driving </title>
         <link rel="stylesheet" href="styles.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">
+        <script type = "text/javascript" src="javascriptpart.js"></script>  
 
     </head>
 
-    <body>
+    <body> 
     <button> </button>
-        <div class="menu-bar">
+        <div class="menu-bar"> 
             <ul>
                 <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li> 
                 <li class="active"><a href="#"><i class="fa fa-graduation-cap"></i> School Zone</a></li>
@@ -25,31 +26,81 @@
         <p>The select element defines a drop-down list:</p>
         
         <form action="/action_page.php">
-          <label for="cars">Choose a car:</label>
-          <select id="cars" name="cars">
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="fiat">Fiat</option>
-            <option value="audi">Audi</option>
+          <label for="places">Choose a scenario:</label>
+          <select id="places" name="cars">
+            <option value="zone">School Zone</option>
+            <option value="lot">Parking Lot</option>
+            <option value="hood">Neighbor Hood</option>
+            <option value="high">Getting on the Highway</option>
+            <option value="reverse">Reversing</option>
           </select>
-          <input type="submit">
         </form>
 
-        <h2>The input Element2</h2>
+        
+  
+    <p> The value of the option selected is: 
+      <span class="output"></span>
+    </p>
+
+
+  <button onclick="getOption()"> Check option </button>
+    
+
+        <p> The value of the option selected is: 
+          <span class="output"></span>
+        </p>
+
+        <h2>The input CarSpeed</h2>
 
         <form action="/action_page.php">
-          <label for="fname">First name:</label><br>
-          <input type="text" id="fname" name="fname"><br><br>
-          <input type="submit" value="Submit">
+          <label for="fname">Speed of Car:</label><br>
+          <input type="text" id="speed" name="fname"><br><br>
+          
         </form>
 
-        <h2>The input Element1</h2>
+        <h2>The input ogVolume</h2>
 
         <form action="/action_page.php">
-            <label for="fname">First name:</label><br>
-            <input type="text" id="fname" name="fname"><br><br>
-            <input type="submit" value="Submit">
+            <label for="fname">Original Volume:</label><br>
+            <input type="text" id="vol" name="fname"><br><br>
+            
         </form>
+
+
+        <input type = "button" onclick = "myfunctions()" value = "Display"> 
+
+
+
+        <script type="text/javascript">
+          function myfunctions() {
+              selectElement = document.querySelector('#places');
+              output = selectElement.value;
+              bleh = document.getElementById("high").value;
+              //loc = document.querySelector("places").value;
+              og = document.getElementById("vol").value;
+              speed = document.getElementById("speed").value;
+              document.querySelector('.output').textContent = output;
+
+              if (og <= 10 )
+              {
+                  volume = og;
+              }
+              else
+              {
+                if (loc == bleh)
+                {
+                  volume = og - ((high*speed)/10);
+                } 
+                else 
+                {
+                  volume = og - ((pl*speed)/10);
+                }
+              }
+
+              document.querySelector('.output').textContent = volume;
+
+          }
+          </script>
 
     </body>
 
